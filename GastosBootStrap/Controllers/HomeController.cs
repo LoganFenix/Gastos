@@ -11,7 +11,10 @@ namespace GastosBootStrap.Controllers
         // GET: Home!
         public ActionResult Index()
         {
+            int numero = new int();
+
             return View();
+            
           
         }
     }
