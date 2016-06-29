@@ -346,6 +346,7 @@
     <Compile Include="Controllers\ProductosController.cs" />
     <Compile Include="Controllers\Prueba2Controller.cs" />
     <Compile Include="Controllers\TipoGastosController.cs" />
+    <Compile Include="Controllers\yuController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -387,6 +388,7 @@
     <Folder Include="Models\" />
     <Folder Include="Scripts\Mensajes\" />
     <Folder Include="Views\Prueba2\" />
+    <Folder Include="Views\yu\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CapaAccesoDatosGastos\CapaAccesoDatosGastos.csproj">
