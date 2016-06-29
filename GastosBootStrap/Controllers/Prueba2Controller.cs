@@ -11,6 +11,7 @@ namespace GastosBootStrap.Controllers
         // GET: Prueba2
         public ActionResult Index()
         {
+
             return View();
         }
     }
