@@ -346,7 +346,6 @@
     <Compile Include="Controllers\ProductosController.cs" />
     <Compile Include="Controllers\Prueba2Controller.cs" />
     <Compile Include="Controllers\TipoGastosController.cs" />
-    <Compile Include="Controllers\yuController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
