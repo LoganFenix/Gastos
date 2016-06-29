@@ -1,0 +1,112 @@
+﻿@model Modelos.ProductosDTO
+
+@{
+    Layout = null;
+}
+
+<div class="row todoprueba">
+    <div class="col-md-12">
+        <div class="tabbable" id="tabs-657973">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#panel-736009" data-toggle="tab">Imagenes</a>
+                </li>
+                <li>
+                    <a href="#panel-54943" data-toggle="tab">Video</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="panel-736009">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="carousel slide" id="carousel-606608">
+                                <ol class="carousel-indicators">
+                                    @{
+                                        var index = 0;
+
+                                        if (Model.ListaImagenes != null)
+                                        {
+                                            foreach (var imagen in Model.ListaImagenes)
+                                            {
+                                                if (index == 0)
+                                                {
+                                                    <li class="active" data-slide-to="0" data-target="#carousel-606608"></li>
+                                                }
+                                                else
+                                                {
+                                                    <li data-slide-to="@index" data-target="#carousel-606608"></li>
+                                                }
+
+                                                index++;
+                                            }
+                                        }
+                                    }
+
+                                </ol>
+                                <div class="carousel-inner">
+
+                                    @if (Model.ListaImagenes != null)
+                                    {
+                                        index = 0;
+
+                                        foreach (var imagen in Model.ListaImagenes)
+                                        {
+                                            if (index == 0)
+                                            {
+                                                <div class="item active">
+                                                    <img alt="@imagen.IdImagen" src="@Url.Content(imagen.UrlImagenGrande)" />
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="item">
+                                                    <img alt="@imagen.IdImagen" src="@Url.Content(imagen.UrlImagenGrande)" />
+                                                </div>
+                                            }
+
+                                            index++;
+                                        }
+                                    }
+
+                                </div>
+                                <a data-slide="prev" href="#carousel-606608" class="left carousel-control">‹</a> <a data-slide="next" href="#carousel-606608" class="right carousel-control">›</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="panel-54943">
+                    <div class="row">
+                        <div class="col-md-12">
+                            @Html.Raw(Model.Video)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <input type="button" name="name" value="DetenerVideo" id="detenervideo" />
+    </div>
+</div>
+
+<script>
+
+    $(function(){
+        
+       
+    
+
+        $('#detenervideo').click(function () {
+            alert('hola');
+            $('.todoprueba').each(function () {
+                alert('paso');
+                $(this).stopVideo();
+            });
+        });
+       
+    
+    });
+        
+
+</script>
+
+

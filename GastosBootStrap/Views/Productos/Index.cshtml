@@ -1,0 +1,113 @@
+﻿@model IEnumerable<Modelos.ProductosDTO>
+
+@{
+    
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@*Ventana Modal*@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+            </div>
+            <div class="modal-body">
+                <div id="modal-cont">
+                    ...
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="row">
+    <div class=" = col-md-12">
+        <button type="button" id="btnNuevo" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"> Nuevo </button>
+    </div>
+
+
+</div>
+
+
+<div class="col-md-12">
+
+    <div class="widget wgreen">
+        <div class="widget-head">
+            <div class="pull-left">Productos</div>
+
+            <div class="clearfix"></div>
+        </div>
+        <div class="widget-content">
+            <div class="table-responsive">
+                <table class="table table-bordered ">
+                    <thead>
+                        <tr>
+                            <th style="font-size:20px"><b>Imagen</b></th>
+                            <th style="font-size:20px"><b>Nombre</b></th>
+                            <th style="font-size:20px"><b>Tipo de Gasto</b></th>
+                            <th style="font-size:20px"><b>Acciones</b></th>
+                        </tr>
+                    </thead>
+                    @foreach (var productos in Model)
+                    {
+                        <tbody>
+
+                            <tr>
+
+
+                                <td>
+                                    @{
+                        if (productos.ListaImagenes != null && productos.ListaImagenes.Any())
+                        {
+                            var imagen = productos.ListaImagenes.FirstOrDefault(x => x.Esportada == true);
+
+                            if (imagen != null)
+                            {
+                                <img src="@Url.Content(imagen.UrlImagenChica)" alt="@productos.Nombre" />
+                            }
+                        }
+                                    }
+                                </td>
+
+
+                     
+                                <td>@productos.Nombre</td>
+                                <td>@productos.NombreTipoGasto</td>
+
+                                <td>
+                                    <a href="#myModal" title="Vista Previa" class="btn btn-sm btn-success  btnVistaPrevia" data-id="@productos.IdProducto" data-toggle="modal"><i class="fa fa-check"></i> </a>
+                                     <a href="#myModal" title="Editar"  class="btn btn-sm btn-primary btnEditar" data-id="@productos.IdProducto" data-toggle="modal"><i class="fa fa-pencil"></i> </a>
+                                    <a href="#myModal" title="Eliminar"  class="btn btn-sm btn-danger btnEliminar" data-id="@productos.IdProducto" data-toggle="modal"><i class="fa fa-times"></i> </a>
+                                </td>
+
+
+
+                            </tr>
+
+
+
+                        </tbody>
+                    }
+                </table>
+            </div>
+        </div>
+       
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+
+
+<script src="~/Scripts/Catalogos/Productos/Productos.js"></script>
+
+

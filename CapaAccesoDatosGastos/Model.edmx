@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ControlPersonalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Imagenes">
+          <Key>
+            <PropertyRef Name="IdImagen" />
+          </Key>
+          <Property Name="IdImagen" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdProducto" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UrlImagenChica" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UrlImagenGrande" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Esportada" Type="bit" />
+          <Property Name="UsuarioAlta" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FechaAlta" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Productos">
+          <Key>
+            <PropertyRef Name="IdProducto" />
+          </Key>
+          <Property Name="IdProducto" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdTipoGasto" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar(max)" />
+          <Property Name="Video" Type="nvarchar(max)" />
+          <Property Name="FechaAlta" Type="date" Nullable="false" />
+          <Property Name="UsuarioAlta" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TiposdeGastos">
+          <Key>
+            <PropertyRef Name="IdTipoGasto" />
+          </Key>
+          <Property Name="IdTipoGasto" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DescripcionGasto" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FechaAlta" Type="date" Nullable="false" />
+          <Property Name="UsuarioAlta" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Imagenes_Productos">
+          <End Role="Productos" Type="Self.Productos" Multiplicity="1" />
+          <End Role="Imagenes" Type="Self.Imagenes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="Imagenes">
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Productos_TiposdeGastos1">
+          <End Role="TiposdeGastos" Type="Self.TiposdeGastos" Multiplicity="1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposdeGastos">
+              <PropertyRef Name="IdTipoGasto" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="IdTipoGasto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ControlPersonalModelStoreContainer">
+          <EntitySet Name="Imagenes" EntityType="Self.Imagenes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Productos" EntityType="Self.Productos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TiposdeGastos" EntityType="Self.TiposdeGastos" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Imagenes_Productos" Association="Self.FK_Imagenes_Productos">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="Imagenes" EntitySet="Imagenes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Productos_TiposdeGastos1" Association="Self.FK_Productos_TiposdeGastos1">
+            <End Role="TiposdeGastos" EntitySet="TiposdeGastos" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ControlPersonalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TiposdeGastos">
+          <Key>
+            <PropertyRef Name="IdTipoGasto" />
+          </Key>
+          <Property Name="IdTipoGasto" Type="Guid" Nullable="false" />
+          <Property Name="DescripcionGasto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FechaAlta" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UsuarioAlta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Productos" Relationship="ControlPersonalModel.FK_Productos_TiposdeGastos1" FromRole="TiposdeGastos" ToRole="Productos" />
+        </EntityType>
+        <EntityContainer Name="ControlPersonalEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TiposdeGastos" EntityType="Self.TiposdeGastos" />
+          <EntitySet Name="Imagenes" EntityType="ControlPersonalModel.Imagenes" />
+          <EntitySet Name="Productos" EntityType="ControlPersonalModel.Productos" />
+          <AssociationSet Name="FK_Imagenes_Productos" Association="ControlPersonalModel.FK_Imagenes_Productos">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="Imagenes" EntitySet="Imagenes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Productos_TiposdeGastos1" Association="ControlPersonalModel.FK_Productos_TiposdeGastos1">
+            <End Role="TiposdeGastos" EntitySet="TiposdeGastos" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Imagenes">
+          <Key>
+            <PropertyRef Name="IdImagen" />
+          </Key>
+          <Property Name="IdImagen" Type="Guid" Nullable="false" />
+          <Property Name="IdProducto" Type="Guid" Nullable="false" />
+          <Property Name="UrlImagenChica" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UrlImagenGrande" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Esportada" Type="Boolean" />
+          <Property Name="UsuarioAlta" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FechaAlta" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Productos" Relationship="ControlPersonalModel.FK_Imagenes_Productos" FromRole="Imagenes" ToRole="Productos" />
+        </EntityType>
+        <EntityType Name="Productos">
+          <Key>
+            <PropertyRef Name="IdProducto" />
+          </Key>
+          <Property Name="IdProducto" Type="Guid" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdTipoGasto" Type="Guid" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Video" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FechaAlta" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UsuarioAlta" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Imagenes" Relationship="ControlPersonalModel.FK_Imagenes_Productos" FromRole="Productos" ToRole="Imagenes" />
+          <NavigationProperty Name="TiposdeGastos" Relationship="ControlPersonalModel.FK_Productos_TiposdeGastos1" FromRole="Productos" ToRole="TiposdeGastos" />
+        </EntityType>
+        <Association Name="FK_Imagenes_Productos">
+          <End Type="ControlPersonalModel.Productos" Role="Productos" Multiplicity="1" />
+          <End Type="ControlPersonalModel.Imagenes" Role="Imagenes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="Imagenes">
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Productos_TiposdeGastos1">
+          <End Type="ControlPersonalModel.TiposdeGastos" Role="TiposdeGastos" Multiplicity="1" />
+          <End Type="ControlPersonalModel.Productos" Role="Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposdeGastos">
+              <PropertyRef Name="IdTipoGasto" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="IdTipoGasto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ControlPersonalModelStoreContainer" CdmEntityContainer="ControlPersonalEntities2">
+          <EntitySetMapping Name="TiposdeGastos">
+            <EntityTypeMapping TypeName="ControlPersonalModel.TiposdeGastos">
+              <MappingFragment StoreEntitySet="TiposdeGastos">
+                <ScalarProperty Name="IdTipoGasto" ColumnName="IdTipoGasto" />
+                <ScalarProperty Name="DescripcionGasto" ColumnName="DescripcionGasto" />
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="UsuarioAlta" ColumnName="UsuarioAlta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Imagenes">
+            <EntityTypeMapping TypeName="ControlPersonalModel.Imagenes">
+              <MappingFragment StoreEntitySet="Imagenes">
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="UsuarioAlta" ColumnName="UsuarioAlta" />
+                <ScalarProperty Name="Esportada" ColumnName="Esportada" />
+                <ScalarProperty Name="UrlImagenGrande" ColumnName="UrlImagenGrande" />
+                <ScalarProperty Name="UrlImagenChica" ColumnName="UrlImagenChica" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="IdImagen" ColumnName="IdImagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Productos">
+            <EntityTypeMapping TypeName="ControlPersonalModel.Productos">
+              <MappingFragment StoreEntitySet="Productos">
+                <ScalarProperty Name="UsuarioAlta" ColumnName="UsuarioAlta" />
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="Video" ColumnName="Video" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdTipoGasto" ColumnName="IdTipoGasto" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

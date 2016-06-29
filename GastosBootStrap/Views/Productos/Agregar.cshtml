@@ -1,0 +1,141 @@
+﻿@model Modelos.ProductosDTO
+
+@{
+    Layout = null;
+}
+
+
+
+<h2>Agregar</h2>
+
+
+@using (Html.BeginForm("agregar", "Productos", FormMethod.Post,
+            new
+        {
+            id = "ProductosForm",
+            enctype = "multipart/form-data"
+        }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="bs-example bs-example-tabs" data-example-id="togglable-tabs">
+        <ul id="myTabs" class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active">
+                <a href="#general" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">General</a>
+            </li>
+            <li role="presentation">
+                <a href="#descripcion" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Descripcion</a>
+            </li>
+            <li role="presentation">
+                <a href="#imagenes" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Imagenes</a>
+            </li>
+            <li role="presentation">
+                <a href="#video" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Video</a>
+            </li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="general" aria-labelledby="home-tab">
+                <div class="form-horizontal" id="formadatos">
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Nombre, "Nombre", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div id="Lista_Tiposgastos_Parcial">
+                        @Html.Partial("ListaTiposGasto", Model)
+
+                    </div>
+
+
+                     
+
+                       
+
+                    </div>
+
+                <div class="col-md-10 AgregarTipo">
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span id="grupoid">@Html.TextBox("NombreTipo", String.Empty)</span>&nbsp;
+                    <a id="GuardTipo" class="btn btn-primary">Agregar</a>
+                </div>
+                    
+
+                    <div class="modal-footer">
+                       
+
+                    </div>
+
+
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="descripcion" aria-labelledby="profile-tab">
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.LabelFor(model => model.Descripcion)
+                    </div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Descripcion)
+                        @Html.ValidationMessageFor(model => model.Descripcion)
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="imagenes" aria-labelledby="profile-tab">
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="#" id="add" class="btn btn-primary">Agregar Imagen</a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div id="divImagenesDTO">
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="video" aria-labelledby="profile-tab">
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.LabelFor(model => model.Video)
+                    </div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Video)
+                        @Html.ValidationMessageFor(model => model.Video)
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button id="btnSalvar" class="btn btn-primary" type="button">Guardar</button>
+            </div>
+        </div>
+    
+
+
+
+
+        
+
+    }
+
+
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/Catalogos/Productos/Productos-modal.js"></script>
+<script src="~/Scripts/Catalogos/Productos/Productos-Imagenes.js"></script>
+<script src="~/Scripts/Catalogos/Productos/Productos-AgregarTipo.js"></script>
+
+
+
+

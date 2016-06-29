@@ -1,0 +1,30 @@
+﻿@model EmoticonPlatzi.Models.Home
+
+@{
+     Layout = "~/Views/Shared/_MyLayout.cshtml"; ;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Vista sin layout</title>
+</head>
+<body>
+    <div> 
+        <h2>@Model.WelcomeMessage</h2>
+        <h4>@Model.Footermessage</h4>
+    </div>
+</body>
+</html>
+
+@section scripts{
+    
+    
+    
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<script src="~/Scripts/modernizr-2.6.2.js"></script>
+    
+    
+    }

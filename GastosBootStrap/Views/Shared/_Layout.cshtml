@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title Gastos</title>
+    
+    <!-- Styles -->
+    <!-- Bootstrap CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <!-- jQuery UI -->
+    <link href="~/Content/Metro/css/jquery-ui.css" rel="stylesheet" />
+    <!-- jQuery Gritter -->
+    <link href="~/Content/Metro/css/jquery.gritter.css" rel="stylesheet" />
+    <!-- Font awesome CSS -->
+    <link href="~/Content/Metro/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="~/Content/Metro/css/style.css" rel="stylesheet" />
+    <!-- Widgets stylesheet -->
+    <link href="~/Content/Metro/css/widgets.css" rel="stylesheet" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/Content/Metro/img/favicon/favicon.png">
+    <!--toastr-->
+    <link href="~/Content/toastr.min.css" rel="stylesheet" />
+
+
+    <!-- Javascript files -->
+    <!-- jQuery -->
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <!-- jQuery UI -->
+    <script src="~/Scripts/jquery-ui-1.11.4.min.js"></script>
+    <!-- jQuery Gritter -->
+    <script src="~/Content/Metro/js/jquery.gritter.min.js"></script>
+    <!-- Respond JS for IE8 -->
+    <script src="~/Content/Metro/js/respond.min.js"></script>
+    <!-- HTML5 Support for IE -->
+    <script src="~/Content/Metro/js/html5shiv.js"></script>
+    <!-- Custom JS -->
+    <script src="~/Content/Metro/js/custom.js"></script>
+    <!--Mensajes Toastr-->
+    <script src="~/Scripts/toastr.min.js"></script>
+    <script src="~/Scripts/Mensajestoastr.js"></script>
+    <!--Validaciones-->
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <!--Ajax-->
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+
+
+  
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+        <div class="container">
+            <!-- Menu button for smallar screens -->
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="Index" class="navbar-brand">Gastos <span class="bold">2015</span></a>
+            </div>
+            <!-- Site name for smallar screens -->
+            <!-- Navigation starts -->
+            <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+                <!-- Links -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <img src="~/Content/Metro/img/user.jpg" alt="" class="nav-user-pic img-responsive"> Admin <b class="caret"></b>
+                        </a>
+                    
+                        <!-- Dropdown menu -->
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+                            <li><a href="#"><i class="fa fa-cogs"></i> Settings</a></li>
+                            <li><a href="login.html"><i class="fa fa-power-off"></i> Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- Notifications -->
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- Comment button with number of latest comments count -->
+                    <li class="dropdown dropdown-big">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                            <i class="fa fa-comments"></i> Chats <span class="badge badge-info">6</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <!-- Heading - h5 -->
+                                <h5><i class="fa fa-comments"></i> Chats</h5>
+                                <!-- Use hr tag to add border -->
+                                <hr>
+                            </li>
+                            <li>
+                                <!-- List item heading h6 -->
+                                <a href="#">Hi :)</a> <span class="label label-warning pull-right">10:42</span>
+                                <div class="clearfix"></div>
+                                <hr>
+                            </li>
+                            <li>
+                                <a href="#">How are you?</a> <span class="label label-warning pull-right">20:42</span>
+                                <div class="clearfix"></div>
+                                <hr>
+                            </li>
+                            <li>
+                                <a href="#">What are you doing?</a> <span class="label label-warning pull-right">14:42</span>
+                                <div class="clearfix"></div>
+                                <hr>
+                            </li>
+                            <li>
+                                <div class="drop-foot">
+                                    <a href="#">View All</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Message button with number of latest messages count-->
+                    <li class="dropdown dropdown-big">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                            <i class="fa fa-envelope-o"></i> Inbox <span class="badge badge-important">6</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <!-- Heading - h5 -->
+                                <h5><i class="fa fa-envelope-o"></i> Messages</h5>
+                                <!-- Use hr tag to add border -->
+                                <hr>
+                            </li>
+                            <li>
+                                <!-- List item heading h6 -->
+                                <a href="#">Hello how are you?</a>
+                                <!-- List item para -->
+                                <p>Quisque eu consectetur erat eget  semper...</p>
+                                <hr>
+                            </li>
+                            <li>
+                                <a href="#">Today is wonderful?</a>
+                                <p>Quisque eu consectetur erat eget  semper...</p>
+                                <hr>
+                            </li>
+                            <li>
+                                <div class="drop-foot">
+                                    <a href="#">View All</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Members button with number of latest members count -->
+                    <li class="dropdown dropdown-big">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                            <i class="fa fa-user"></i> Users <span class="badge badge-success">6</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <!-- Heading - h5 -->
+                                <h5><i class="fa fa-user"></i> Users</h5>
+                                <!-- Use hr tag to add border -->
+                                <hr>
+                            </li>
+                            <li>
+                                <!-- List item heading h6-->
+                                <a href="#">Ravi Kumar</a> <span class="label label-warning pull-right">Free</span>
+                                <div class="clearfix"></div>
+                                <hr>
+                            </li>
+                            <li>
+                                <a href="#">Balaji</a> <span class="label label-important pull-right">Premium</span>
+                                <div class="clearfix"></div>
+                                <hr>
+                            </li>
+                            <li>
+                                <a href="#">Kumarasamy</a> <span class="label label-warning pull-right">Free</span>
+                                <div class="clearfix"></div>
+                                <hr>
+                            </li>
+                            <li>
+                                <div class="drop-foot">
+                                    <a href="#">View All</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="content">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-dropdown"><a href="#">Navigation</a></div>
+            <div class="sidebar-inner">
+                <!-- Search form -->
+                <div class="sidebar-widget">
+                    <form>
+                        <input type="text" class="form-control" placeholder="Search">
+                    </form>
+                </div>
+                <!--- Sidebar navigation -->
+                <!-- If the main navigation has sub navigation, then add the class "has_submenu" to "li" of main navigation. -->
+                <ul class="navi">
+                    <!-- Use the class nred, ngreen, nblue, nlightblue, nviolet or norange to add background color. You need to use this in <li> tag. -->
+
+                    <li class="nred current"><a href="index.html"><i class="fa fa-desktop"></i> Dashboard</a></li>
+                    <!-- Menu with sub menu -->
+                  
+                    <li class="has_submenu nblue">
+                        <a href="#">
+                            <i class="fa fa-file-o"></i> Catalogos
+                            <span class="pull-right"><i class="fa fa-angle-right"></i></span>
+                        </a>
+                        <ul>
+                            <li>@Html.ActionLink("Tipos de Gastos", "Index", "TipoGastos")</li>
+                            <li>@Html.ActionLink("Productos", "Index", "Productos")</li>
+                           
+                        </ul>
+                    </li>
+
+                   
+                 
+                </ul>
+                <!--/ Sidebar navigation -->
+                <!-- Date -->
+                <div class="sidebar-widget">
+                    <div id="todaydate"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Sidebar ends -->
+        <!-- Main bar -->
+        <div class="mainbar">
+          
+            <!-- Matter -->
+            <div class="matter">
+                <div class="container-fluid">
+                    <div class="row-fluid">
+
+                        <!-- Content -->
+                        @RenderBody()
+
+                    </div>
+                </div>
+            </div><!--/ Matter ends -->
+        </div><!--/ Mainbar ends -->
+        <div class="clearfix"></div>
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Phinder</p>
+        </footer>
+    </div>
+   
+    <!-- Scroll to top -->
+    <span class="totop"><a href="#"><i class="fa fa-chevron-up"></i></a></span>
+
+
+ 
+   
+
+</body>
+</html>
+

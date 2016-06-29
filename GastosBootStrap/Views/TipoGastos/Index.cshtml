@@ -1,0 +1,65 @@
+﻿@model Modelos.TiposDeGastosDTO
+@{
+   
+    Layout = "~/Views/Shared/_Layout.cshtml";
+   
+}
+
+@*Ventana Modal*@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                
+            </div>
+            <div class="modal-body">
+                <div id="modal-cont">
+                    ...
+                </div>
+               
+            </div>
+          
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="row">
+    <div class=" = col-md-12">
+
+        <button type="button" id="btnNuevo" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"> Nuevo </button>
+        <a>@Html.ActionLink("GENERAR REPORTE", "ReporteTiposGasto", "TipoGastos", new{@class ="btn btn-primary btn-lg" })</a>
+       
+     </div>
+
+
+</div>
+@*Busqueda*@
+
+@using (Html.BeginForm("Index", "TipoGastos", FormMethod.Get, new { @class = "form-search" }))
+{
+<div class="row-fluid">
+    <div class="col-md-offset-9">
+        @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "input medium search query", placeholder = "Ingrese su criterio" })
+        <button type="button" class="btn" id="Buscar">Buscar</button>
+
+
+    </div>
+
+</div>
+}
+<img id="loading"  src="~/Content/Imagenes/724.gif" />
+@*Listado*@
+<div id="Lista_Tiposgastos_Parcial">
+    @Html.Partial("ListaTiposGasto", Model)
+
+</div>
+
+<script src="~/Scripts/Catalogos/TipoDeGastos/TiposdeGastos.js"></script>
+
+

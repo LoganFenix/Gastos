@@ -1,0 +1,434 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{56BD5785-C8D3-4199-A6DD-634CD03790A6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GastosBootStrap</RootNamespace>
+    <AssemblyName>GastosBootStrap</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.76.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.76.0\lib\net40-client\ClosedXML.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Rabbit.Bootstrap">
+      <HintPath>..\packages\Rabbit.Bootstrap.MVC.1.1.0.0\lib\net40\Rabbit.Bootstrap.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.Common, Version=1.2.129.55040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML_Excel.1.0.0\lib\Spire.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Spire.License, Version=1.3.2.40, Culture=neutral, PublicKeyToken=b1144360237c8b3f, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML_Excel.1.0.0\lib\Spire.License.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Spire.Pdf, Version=3.0.40.55040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML_Excel.1.0.0\lib\Spire.Pdf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Spire.XLS, Version=7.4.12.55040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML_Excel.1.0.0\lib\Spire.XLS.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.2\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.2\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.2\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Imagenes\724.gif" />
+    <Content Include="Content\Metro\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\Metro\css\bootstrap-switch.css" />
+    <Content Include="Content\Metro\css\bootstrap.css" />
+    <Content Include="Content\Metro\css\bootstrap.min.css" />
+    <Content Include="Content\Metro\css\delete.gif" />
+    <Content Include="Content\Metro\css\font-awesome.min.css" />
+    <Content Include="Content\Metro\css\fullcalendar.css" />
+    <Content Include="Content\Metro\css\images\animated-overlay.gif" />
+    <Content Include="Content\Metro\css\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Content\Metro\css\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Content\Metro\css\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\Metro\css\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Content\Metro\css\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\Metro\css\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Content\Metro\css\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Content\Metro\css\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\Metro\css\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\Metro\css\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\Metro\css\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\Metro\css\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\Metro\css\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Content\Metro\css\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Content\Metro\css\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\Metro\css\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Content\Metro\css\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\Metro\css\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Content\Metro\css\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\Metro\css\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\Metro\css\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\Metro\css\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\Metro\css\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\Metro\css\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Content\Metro\css\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Content\Metro\css\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\Metro\css\jquery-ui.css" />
+    <Content Include="Content\Metro\css\jquery.gritter.css" />
+    <Content Include="Content\Metro\css\prettyPhoto.css" />
+    <Content Include="Content\Metro\css\rateit.css" />
+    <Content Include="Content\Metro\css\star.gif" />
+    <Content Include="Content\Metro\css\style.css" />
+    <Content Include="Content\Metro\css\widgets.css" />
+    <Content Include="Content\Metro\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Metro\img\delete.gif" />
+    <Content Include="Content\Metro\img\favicon\favicon.png" />
+    <Content Include="Content\Metro\img\gritter\gritter.png" />
+    <Content Include="Content\Metro\img\gritter\ie-spacer.gif" />
+    <Content Include="Content\Metro\img\icons\android.png" />
+    <Content Include="Content\Metro\img\icons\chrome.png" />
+    <Content Include="Content\Metro\img\icons\firefox.png" />
+    <Content Include="Content\Metro\img\icons\ie.png" />
+    <Content Include="Content\Metro\img\icons\ios.png" />
+    <Content Include="Content\Metro\img\icons\linux.png" />
+    <Content Include="Content\Metro\img\icons\mac.png" />
+    <Content Include="Content\Metro\img\icons\metro.png" />
+    <Content Include="Content\Metro\img\icons\opera.png" />
+    <Content Include="Content\Metro\img\icons\safari.png" />
+    <Content Include="Content\Metro\img\icons\windows.png" />
+    <Content Include="Content\Metro\img\photos\s1.jpg" />
+    <Content Include="Content\Metro\img\photos\s10.jpg" />
+    <Content Include="Content\Metro\img\photos\s2.jpg" />
+    <Content Include="Content\Metro\img\photos\s3.jpg" />
+    <Content Include="Content\Metro\img\photos\s4.jpg" />
+    <Content Include="Content\Metro\img\photos\s5.jpg" />
+    <Content Include="Content\Metro\img\photos\s6.jpg" />
+    <Content Include="Content\Metro\img\photos\s7.jpg" />
+    <Content Include="Content\Metro\img\photos\s8.jpg" />
+    <Content Include="Content\Metro\img\photos\s9.jpg" />
+    <Content Include="Content\Metro\img\photos\t1.jpg" />
+    <Content Include="Content\Metro\img\photos\t10.jpg" />
+    <Content Include="Content\Metro\img\photos\t2.jpg" />
+    <Content Include="Content\Metro\img\photos\t3.jpg" />
+    <Content Include="Content\Metro\img\photos\t4.jpg" />
+    <Content Include="Content\Metro\img\photos\t5.jpg" />
+    <Content Include="Content\Metro\img\photos\t6.jpg" />
+    <Content Include="Content\Metro\img\photos\t7.jpg" />
+    <Content Include="Content\Metro\img\photos\t8.jpg" />
+    <Content Include="Content\Metro\img\photos\t9.jpg" />
+    <Content Include="Content\Metro\img\prettyPhoto\dark_rounded\btnNext.png" />
+    <Content Include="Content\Metro\img\prettyPhoto\dark_rounded\btnPrevious.png" />
+    <Content Include="Content\Metro\img\prettyPhoto\dark_rounded\contentPattern.png" />
+    <Content Include="Content\Metro\img\prettyPhoto\dark_rounded\default_thumbnail.gif" />
+    <Content Include="Content\Metro\img\prettyPhoto\dark_rounded\loader.gif" />
+    <Content Include="Content\Metro\img\prettyPhoto\dark_rounded\sprite.png" />
+    <Content Include="Content\Metro\img\prettyPhoto\dark_square\btnNext.png" />
+    <Content Include="Content\Metro\img\prettyPhoto\dark_square\btnPrevious.png" />
+    <Content Include="Content\Metro\img\prettyPhoto\dark_square\contentPattern.png" />
+    <Content Include="Content\Metro\img\prettyPhoto\dark_square\default_thumbnail.gif" />
+    <Content Include="Content\Metro\img\prettyPhoto\dark_square\loader.gif" />
+    <Content Include="Content\Metro\img\prettyPhoto\dark_square\sprite.png" />
+    <Content Include="Content\Metro\img\prettyPhoto\default\default_thumb.png" />
+    <Content Include="Content\Metro\img\prettyPhoto\default\loader.gif" />
+    <Content Include="Content\Metro\img\prettyPhoto\default\sprite.png" />
+    <Content Include="Content\Metro\img\prettyPhoto\default\sprite_next.png" />
+    <Content Include="Content\Metro\img\prettyPhoto\default\sprite_prev.png" />
+    <Content Include="Content\Metro\img\prettyPhoto\default\sprite_x.png" />
+    <Content Include="Content\Metro\img\prettyPhoto\default\sprite_y.png" />
+    <Content Include="Content\Metro\img\prettyPhoto\facebook\btnNext.png" />
+    <Content Include="Content\Metro\img\prettyPhoto\facebook\btnPrevious.png" />
+    <Content Include="Content\Metro\img\prettyPhoto\facebook\contentPatternBottom.png" />
+    <Content Include="Content\Metro\img\prettyPhoto\facebook\contentPatternLeft.png" />
+    <Content Include="Content\Metro\img\prettyPhoto\facebook\contentPatternRight.png" />
+    <Content Include="Content\Metro\img\prettyPhoto\facebook\contentPatternTop.png" />
+    <Content Include="Content\Metro\img\prettyPhoto\facebook\default_thumbnail.gif" />
+    <Content Include="Content\Metro\img\prettyPhoto\facebook\loader.gif" />
+    <Content Include="Content\Metro\img\prettyPhoto\facebook\sprite.png" />
+    <Content Include="Content\Metro\img\prettyPhoto\light_rounded\btnNext.png" />
+    <Content Include="Content\Metro\img\prettyPhoto\light_rounded\btnPrevious.png" />
+    <Content Include="Content\Metro\img\prettyPhoto\light_rounded\default_thumbnail.gif" />
+    <Content Include="Content\Metro\img\prettyPhoto\light_rounded\loader.gif" />
+    <Content Include="Content\Metro\img\prettyPhoto\light_rounded\sprite.png" />
+    <Content Include="Content\Metro\img\prettyPhoto\light_square\btnNext.png" />
+    <Content Include="Content\Metro\img\prettyPhoto\light_square\btnPrevious.png" />
+    <Content Include="Content\Metro\img\prettyPhoto\light_square\default_thumbnail.gif" />
+    <Content Include="Content\Metro\img\prettyPhoto\light_square\loader.gif" />
+    <Content Include="Content\Metro\img\prettyPhoto\light_square\sprite.png" />
+    <Content Include="Content\Metro\img\star.gif" />
+    <Content Include="Content\Metro\img\user.jpg" />
+    <Content Include="Content\Metro\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="Content\Metro\js\bootstrap-switch.min.js" />
+    <Content Include="Content\Metro\js\bootstrap.js" />
+    <Content Include="Content\Metro\js\bootstrap.min.js" />
+    <Content Include="Content\Metro\js\custom.js" />
+    <Content Include="Content\Metro\js\excanvas.min.js" />
+    <Content Include="Content\Metro\js\filter.js" />
+    <Content Include="Content\Metro\js\fullcalendar.min.js" />
+    <Content Include="Content\Metro\js\html5shiv.js" />
+    <Content Include="Content\Metro\js\jquery-ui.min.js" />
+    <Content Include="Content\Metro\js\jquery.flot.js" />
+    <Content Include="Content\Metro\js\jquery.flot.pie.js" />
+    <Content Include="Content\Metro\js\jquery.flot.resize.js" />
+    <Content Include="Content\Metro\js\jquery.flot.stack.js" />
+    <Content Include="Content\Metro\js\jquery.gritter.min.js" />
+    <Content Include="Content\Metro\js\jquery.js" />
+    <Content Include="Content\Metro\js\jquery.prettyPhoto.js" />
+    <Content Include="Content\Metro\js\jquery.rateit.min.js" />
+    <Content Include="Content\Metro\js\moment.min.js" />
+    <Content Include="Content\Metro\js\respond.min.js" />
+    <Content Include="Content\Metro\js\sparkline-index.js" />
+    <Content Include="Content\Metro\js\sparklines.js" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\Metro\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Metro\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Metro\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Metro\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\Metro\fonts\FontAwesome.otf" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
+    <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\Catalogos\Productos\Productos-AgregarTipo.js" />
+    <Content Include="Scripts\Catalogos\Productos\Productos-Imagenes.js" />
+    <Content Include="Scripts\Catalogos\Productos\Productos-modal.js" />
+    <Content Include="Scripts\Catalogos\Productos\Productos.js" />
+    <Content Include="Scripts\Catalogos\TipoDeGastos\EliminarEditarTipoGasto.js" />
+    <Content Include="Scripts\Catalogos\TipoDeGastos\TiposdeGastos.js" />
+    <Content Include="Scripts\jquery-2.1.4.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Mensajestoastr.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Scripts\jquery-2.1.4.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductosController.cs" />
+    <Compile Include="Controllers\TipoGastosController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportesXML\Clases\ExcelResult.cs" />
+    <Compile Include="ReportesXML\ReporteTipoGastosXML.cs" />
+    <Compile Include="Seguridad\CustomPrincipal.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\TipoGastos\Index.cshtml" />
+    <Content Include="Views\TipoGastos\Agregar.cshtml" />
+    <Content Include="Views\TipoGastos\Editar.cshtml" />
+    <Content Include="Views\TipoGastos\Eliminar.cshtml" />
+    <Content Include="Views\TipoGastos\Pruebamensajes.cshtml" />
+    <Content Include="Views\TipoGastos\ListaTiposGasto.cshtml" />
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
+    <Content Include="Views\Productos\Index.cshtml" />
+    <Content Include="Views\Productos\Agregar.cshtml" />
+    <Content Include="Views\Productos\Editar.cshtml" />
+    <Content Include="Views\Productos\Eliminar.cshtml" />
+    <Content Include="Views\Productos\VistaPrevia.cshtml" />
+    <Content Include="Views\Productos\ListaTiposGasto.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\Imagenes\Mediana\" />
+    <Folder Include="Content\Imagenes\Miniatura\" />
+    <Folder Include="Models\" />
+    <Folder Include="Scripts\Mensajes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapaAccesoDatosGastos\CapaAccesoDatosGastos.csproj">
+      <Project>{ec5c42f9-ec45-42cc-9400-fba113427787}</Project>
+      <Name>CapaAccesoDatosGastos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Metodos\Metodos.csproj">
+      <Project>{dbac799b-c62e-49c8-bea5-95396d91f7c5}</Project>
+      <Name>Metodos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modelos\Modelos.csproj">
+      <Project>{127e023b-8bf2-4d24-b893-6fb46d2a6f59}</Project>
+      <Name>Modelos</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>58091</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:58091/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

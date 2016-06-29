@@ -1,0 +1,78 @@
+﻿@model Modelos.TiposDeGastosDTO
+@{
+    
+    int paginados = Model.paginasadescontar;
+    List<int> paginas = new List<int>() ;
+   
+    while (paginados > 0)
+    {
+        paginas.Add(paginados);
+        paginados--;
+    }
+
+    paginas = paginas.OrderBy(x => x).ToList();
+}
+
+
+@*Listado*@
+<div class="col-md-12">
+
+    <div class="widget wlightblue">
+        <div class="widget-head">
+            <div class="pull-left">Tipo de Gastos</div>
+          
+            <div class="clearfix"></div>
+        </div>
+        <div class="widget-content">
+            <div class="table-responsive">
+                <table class="table table-bordered ">
+                    <thead>
+                        <tr>
+
+                            <th>Nombre</th>
+                            <th>Control</th>
+                        </tr>
+                    </thead>
+                    @foreach (var tiposgastos in Model.ListaTiposGasto)
+                    {
+                        <tbody>
+
+                            <tr>
+
+                                <td>@tiposgastos.DescripcionGasto</td>
+
+                                <td>
+
+                                    <a href="#myModal" class="btn btn-sm btn-warning btnEditar" data-id="@tiposgastos.IdTipoGasto" data-toggle="modal"><i class="fa fa-pencil"></i> </a>
+                                    <a href="#myModal" class="btn btn-sm btn-danger btnEliminar" data-id="@tiposgastos.IdTipoGasto" data-toggle="modal"><i class="fa fa-times"></i> </a>
+                                </td>
+
+
+
+                            </tr>
+
+
+
+                        </tbody>
+                    }
+                </table>
+            </div>
+        </div>
+        <div class="widget-foot">
+            <ul class="pagination pull-right">
+                <li>@Ajax.ActionLink("Primero", "ListaTiposGasto", new { id = 1, @SearchString = @Html.Value("SearchString") }, new AjaxOptions { UpdateTargetId = "Lista_Tiposgastos_Parcial", InsertionMode = InsertionMode.Replace })</li>
+                <li>@Ajax.ActionLink("Anterior", "ListaTiposGasto", new { id = (Model.Indice - 1 < 1) ? 1 : (Model.Indice - 1), @SearchString = @Html.Value("SearchString") }, new AjaxOptions { UpdateTargetId = "Lista_Tiposgastos_Parcial", InsertionMode = InsertionMode.Replace })</li>
+                 @foreach (int pag in paginas)
+                {
+                <li>@Ajax.ActionLink(pag.ToString(), "ListaTiposGasto", new { id = pag, @SearchString = @Html.Value("SearchString") }, new AjaxOptions { UpdateTargetId = "Lista_Tiposgastos_Parcial", InsertionMode = InsertionMode.Replace })</li>
+                }
+                <li>@Ajax.ActionLink("Siguiente", "ListaTiposGasto", new { id = (Model.Indice + 1 > Model.ConteoPagina) ? ViewBag.PageCount : (Model.Indice + 1), @SearchString = @Html.Value("SearchString") }, new AjaxOptions { UpdateTargetId = "Lista_Tiposgastos_Parcial", InsertionMode = InsertionMode.Replace })</li>
+                <li>@Ajax.ActionLink("Ultimo", "ListaTiposGasto", new { id = Model.ConteoPagina, @SearchString = @Html.Value("SearchString") }, new AjaxOptions { UpdateTargetId = "Lista_Tiposgastos_Parcial", InsertionMode = InsertionMode.Replace })</li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+     
+    </div>
+
+</div>
+<script src="~/Scripts/Catalogos/TipoDeGastos/EliminarEditarTipoGasto.js"></script>

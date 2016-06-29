@@ -1,0 +1,54 @@
+﻿@model Modelos.ProductosDTO
+
+
+@{
+    Layout = null;
+}
+
+<fieldset>
+    <legend>Esta seguro que desea eliminar este Producto?</legend>
+
+    <div class="row">
+        <div class="col-md-2">
+            @Html.LabelFor(model => model.NombreTipoGasto, "Nombre", htmlAttributes: new { @class = "control-label col-md-2" })
+        </div>
+      
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">
+            @Html.LabelFor(model => model.NombreTipoGasto, "Tipo", htmlAttributes: new { @class = "control-label col-md-2" })
+        </div>
+
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.NombreTipoGasto)
+        </div>
+
+
+
+        <div>
+            @if (Model.ListaImagenes != null && Model.ListaImagenes.Any())
+            {
+                var imagen = Model.ListaImagenes.FirstOrDefault(i => i.Esportada);
+
+                if (imagen != null)
+                {
+                    <img src="@Url.Content(imagen.UrlImagenChica)" alt="@imagen.IdImagen" />
+                }
+            }
+        </div>
+    </div>
+   
+</fieldset>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+        <button id="btnEliminar" class="btn btn-primary" type="submit">Eliminar</button>
+    </div>
+}

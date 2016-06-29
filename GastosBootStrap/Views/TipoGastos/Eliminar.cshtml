@@ -1,0 +1,38 @@
+﻿@model Modelos.TiposDeGastosDTO
+
+@{
+    Layout = null;
+}
+
+
+
+<h3>¿Esta seguro que desea eliminar este registro?</h3>
+<div>
+  
+    <hr />
+    <dl class="dl-horizontal">
+       
+
+        <dd>
+            @Html.HiddenFor(model => model.IdTipoGasto)
+        </dd>
+
+        <dt>
+          Nombre:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescripcionGasto)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </div>
+    }
+</div>

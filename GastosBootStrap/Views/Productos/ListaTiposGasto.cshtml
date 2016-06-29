@@ -1,0 +1,17 @@
+﻿@model Modelos.ProductosDTO
+
+@{
+    Layout = null;
+}
+
+
+
+<div class="form-group">
+    @Html.LabelFor(model => model.NombreTipoGasto, "Tipo_Gasto", htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10" id="Lista_Tiposgastos_Parcial">
+        @Html.DropDownListFor(model => model.IdTipoGasto,
+                                         new SelectList(Model.ListaTipoGastos, "IdTipoGasto", "DescripcionGasto"), "Seleccione un Tipo de Gasto")
+        @Html.ValidationMessageFor(model => model.IdTipoGasto)
+        <a id="AgregarTi" class="btn btn-primary">+</a>
+
+</div>
